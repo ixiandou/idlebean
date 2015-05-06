@@ -137,6 +137,11 @@ return [
 		'Illuminate\View\ViewServiceProvider',
 
 		/*
+		 * rabbitmq
+		 */
+		'FintechFab\LaravelQueueRabbitMQ\LaravelQueueRabbitMQServiceProvider',
+
+		/*
 		 * Application Service Providers...
 		 */
 		'App\Providers\AppServiceProvider',
