@@ -84,8 +84,10 @@ class AuthController extends Controller {
         public function postRegister(Request $request)
         {
                 $validator = $this->registrar->validator($request->all());
-		file_put_contents('/tmp/reg', 'define', FILE_APPEND);
 
+                //$ret = $this->validate($request, [
+                 //       'email' => 'required|email', 'password' => 'required',
+                //]);
                 if ($validator->fails())
                 {
                         $this->throwValidationException(
@@ -94,6 +96,7 @@ class AuthController extends Controller {
                 }
 
 		$user = $this->registrar->create($request->all());
+		$this->auth->logout();
 
                 return redirect('/auth/checkmail/' . urlencode($user->email));
         }

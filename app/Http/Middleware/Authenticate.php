@@ -32,6 +32,7 @@ class Authenticate {
 	 */
 	public function handle($request, Closure $next)
 	{
+	file_put_contents('/tmp/auth', var_export($this->auth->guest(), true));
 		if ($this->auth->guest())
 		{
 			if ($request->ajax())
