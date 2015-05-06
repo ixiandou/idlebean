@@ -1,0 +1,25 @@
+METHOD                          ROUTE                                                  ACTION
+GET|HEAD                        user                                                   user.index     
+GET|HEAD                        user/create                                            user.create    
+POST                            user                                                   user.store     
+GET|HEAD                        user/{user}                                            user.show      
+GET|HEAD                        user/{user}/edit                                       user.edit      
+PUT                             user/{user}                                            user.update    
+PATCH                           user/{user}                                                           
+DELETE                          user/{user}                                            user.destroy   
+GET|HEAD                        worker                                                 worker.index   
+GET|HEAD                        worker/create                                          worker.create  
+POST                            worker                                                 worker.store   
+GET|HEAD                        worker/{worker}                                        worker.show    
+GET|HEAD                        worker/{worker}/edit                                   worker.edit    
+PUT                             worker/{worker}                                        worker.update  
+PATCH                           worker/{worker}                                                       
+DELETE                          worker/{worker}                                        worker.destroy 
+GET|HEAD                        order                                                  order.index    
+GET|HEAD                        order/create                                           order.create   
+POST                            order                                                  order.store    
+GET|HEAD                        order/{order}                                          order.show     
+GET|HEAD                        order/{order}/edit                                     order.edit     
+PUT                             order/{order}                                          order.update   
+PATCH                           order/{order}                                                         
+DELETE                          order/{order}                                          order.destroy  

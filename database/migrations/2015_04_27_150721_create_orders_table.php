@@ -39,9 +39,12 @@ class CreateOrdersTable extends Migration {
                         $table->string('worker_img_url');
                         $table->float('eval_price');
                         $table->float('real_price');
+			$table->double('lng');
+			$table->double('lat');
                         $table->integer('status');
                         $table->text('attr');
                         $table->text('other');
+			$table->timestamps();
 		});
 	}
 

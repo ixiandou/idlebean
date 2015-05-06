@@ -16,6 +16,7 @@ class CreateWorkersTable extends Migration {
 		{
                         $table->bigIncrements('id');
                         $table->bigInteger('user_id');
+			$table->timestamps();
 		});
 	}
 

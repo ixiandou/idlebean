@@ -19,3 +19,7 @@ Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
+
+Route::resource('user', 'UserController');
+Route::resource('worker', 'WorkerController');
+Route::resource('order', 'OrderController');

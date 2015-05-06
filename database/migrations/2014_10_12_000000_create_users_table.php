@@ -27,6 +27,8 @@ class CreateUsersTable extends Migration {
                         $table->integer('comments_mid');
                         $table->integer('comments_bad');
                         $table->integer('status');
+			$table->double('lng');
+			$table->double('lat');
 			$table->string('password', 60);
 			$table->rememberToken();
 			$table->timestamps();
