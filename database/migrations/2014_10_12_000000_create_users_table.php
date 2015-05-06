@@ -17,7 +17,10 @@ class CreateUsersTable extends Migration {
 			$table->bigIncrements('id');
 			$table->string('name');
 			$table->string('email')->unique();
-                        $table->string('telephone')->unique();
+			$table->string('password', 60);
+			$table->string('confirmation_code');
+			$table->boolean('confirmed')->default(0);
+                        $table->string('telephone');
                         $table->string('area');
                         $table->string('address');
                         $table->integer('score');
@@ -29,7 +32,6 @@ class CreateUsersTable extends Migration {
                         $table->integer('status');
 			$table->double('lng');
 			$table->double('lat');
-			$table->string('password', 60);
 			$table->rememberToken();
 			$table->timestamps();
 		});

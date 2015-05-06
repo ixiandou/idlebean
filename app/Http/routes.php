@@ -23,3 +23,4 @@ Route::controllers([
 Route::resource('user', 'UserController');
 Route::resource('worker', 'WorkerController');
 Route::resource('order', 'OrderController');
+Route::resource('test', 'TestController');

@@ -15,7 +15,7 @@ class OrderController extends Controller {
 	 */
 	public function index()
 	{
-		//
+		// return Order::all();
 		return Order::where('status', '=', Order::STATUS_NEW)->get();
 	}
 

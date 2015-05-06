@@ -2,11 +2,11 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Worker;
+use Mail;
 
 use Illuminate\Http\Request;
 
-class WorkerController extends Controller {
+class TestController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -16,7 +16,10 @@ class WorkerController extends Controller {
 	public function index()
 	{
 		//
-		return Worker::all();
+		$ret = Mail::send('emails.test', ['key' => 'value'], function($message)
+		{
+		    $message->to('wangchuan3533@gmail.com', 'Wang Chuan')->subject('Welcome!');
+		});
 	}
 
 	/**
@@ -27,9 +30,6 @@ class WorkerController extends Controller {
 	public function create()
 	{
 		//
-		$worker = new Worker;
-		$worker->save();
-		return $worker;
 	}
 
 	/**
