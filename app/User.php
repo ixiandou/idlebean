@@ -10,6 +10,10 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
 	use Authenticatable, CanResetPassword;
 
+	const ROLE_TYPE_ADMIN = 0;
+	const ROLE_TYPE_CLIENT = 1;
+	const ROLE_TYPE_WORKER = 2;
+
 	/**
 	 * The database table used by the model.
 	 *
@@ -22,13 +26,14 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 *
 	 * @var array
 	 */
-	protected $fillable = ['name', 'email', 'password', 'confirmation_code', 'telephone'];
+	protected $fillable = ['name', 'email', 'password', 'telephone'];
 
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *
 	 * @var array
 	 */
-	protected $hidden = ['password', 'remember_token'];
+	protected $hidden = ['password', 'remember_token', 'confirmation_code', 'confirmation_expire', 'token', 'token_expire'];
+	//protected $hidden = ['password', 'remember_token'];
 
 }

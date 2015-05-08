@@ -2,6 +2,7 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Facades\Sms;
 use Mail;
 
 use Illuminate\Http\Request;
@@ -16,10 +17,10 @@ class TestController extends Controller {
 	public function index()
 	{
 		//
-		$ret = Mail::send('emails.test', ['key' => 'value'], function($message)
-		{
-		    $message->to('wangchuan3533@gmail.com', 'Wang Chuan')->subject('Welcome!');
-		});
+		//$ret = Mail::send('emails.test', ['key' => 'value'], function($message)
+		//{
+		//    $message->to('wangchuan3533@gmail.com', 'Wang Chuan')->subject('Welcome!');
+		//});
 	}
 
 	/**
@@ -51,6 +52,7 @@ class TestController extends Controller {
 	public function show($id)
 	{
 		//
+		return Sms::send($id, '[王川测试]' . rand(100000, 999999));
 	}
 
 	/**

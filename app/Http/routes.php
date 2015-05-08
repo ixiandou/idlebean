@@ -24,3 +24,7 @@ Route::resource('user', 'UserController');
 Route::resource('worker', 'WorkerController');
 Route::resource('order', 'OrderController');
 Route::resource('test', 'TestController');
+
+Route::get('user/reg/{mobile}', 'UserController@reg');
+Route::get('user/confirm/{mobile}/{code}', 'UserController@confirm');
+Route::get('user/check/{mobile}/{token}', 'UserController@check');

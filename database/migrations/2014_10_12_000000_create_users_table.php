@@ -16,13 +16,16 @@ class CreateUsersTable extends Migration {
 		{
 			$table->bigIncrements('id');
 			$table->string('name');
-			$table->string('email')->unique();
+			$table->string('email');
 			$table->string('password', 60);
+			$table->string('token', 128);
+			$table->integer('token_expire')->unsigned();
 			$table->string('confirmation_code');
-			$table->boolean('confirmed')->default(0);
+			$table->integer('confirmation_expire')->unsigned();
                         $table->string('telephone');
                         $table->string('area');
                         $table->string('address');
+			$table->integer('role');
                         $table->integer('score');
                         $table->integer('bonus_total');
                         $table->integer('bonus_unpaid');
@@ -34,6 +37,7 @@ class CreateUsersTable extends Migration {
 			$table->double('lat');
 			$table->rememberToken();
 			$table->timestamps();
+			$table->unique(['email', 'telephone']);
 		});
 	}
 

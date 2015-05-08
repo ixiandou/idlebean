@@ -3,7 +3,6 @@
 use App\User;
 use Validator;
 use Illuminate\Contracts\Auth\Registrar as RegistrarContract;
-use Mail;
 
 class Registrar implements RegistrarContract {
 
@@ -30,17 +29,12 @@ class Registrar implements RegistrarContract {
 	 */
 	public function create(array $data)
 	{
-		$confirmation_code = str_random(32);
-		$data['password'] = bcrypt($data['password']);
 		$user =  User::create([
 			'name' => $data['name'],
 			'email' => $data['email'],
-			'password' => $data['password'],
-			'confirmation_code' => $confirmation_code,
+			'password' => bcrypt($data['password']),
 		]);
-		Mail::send('emails.verify', ['confirmation_code' => $confirmation_code ], function ($message) use($data) {
-			$message->to($data['email'], $data['name'])->subject('Verify your email address');
-		});
+		// fire register event
 		return $user;
 	}
 
