@@ -16,7 +16,7 @@ class CreateOrdersTable extends Migration {
 		{
 			//
 			$table->bigIncrements('id');
-                        $table->bigInteger('user_id');
+                        $table->bigInteger('client_id');
                         $table->bigInteger('worker_id');
                         $table->string('type');
                         $table->string('name');
@@ -42,6 +42,7 @@ class CreateOrdersTable extends Migration {
 			$table->double('lng');
 			$table->double('lat');
                         $table->integer('status');
+			$table->text('pic_list');
                         $table->text('attr');
                         $table->text('other');
 			$table->timestamps();

@@ -2,11 +2,11 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Worker;
+use App\Photo;
 
 use Illuminate\Http\Request;
 
-class WorkerController extends Controller {
+class PhotoController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -16,7 +16,7 @@ class WorkerController extends Controller {
 	public function index()
 	{
 		//
-		return Worker::all();
+		return ['a' => 'b'];
 	}
 
 	/**
@@ -27,9 +27,6 @@ class WorkerController extends Controller {
 	public function create()
 	{
 		//
-		$worker = new Worker;
-		$worker->save();
-		return $worker;
 	}
 
 	/**
@@ -37,9 +34,12 @@ class WorkerController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
-		//
+		$photo = Photo::create(['user_id' => $request->input('user_id', 0)]);
+		$file = $request->file('photo');
+		$file->move('uploads', $photo->id . '.png');
+		return ['errno' => 0, 'errmsg' => 'success', 'id' => $photo->id];
 	}
 
 	/**
@@ -50,7 +50,7 @@ class WorkerController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
+		return redirect('/uploads/' . $id . '.png');
 	}
 
 	/**

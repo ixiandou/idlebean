@@ -2,8 +2,8 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class Worker extends Model {
+class Photo extends Model {
 
 	//
-
+	protected $fillable = ['user_id',];
 }
