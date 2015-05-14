@@ -3,7 +3,9 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Facades\Sms;
-use Mail;
+use App\Facades\Es;
+use App\Commands\TestCommand;
+use Queue;
 
 use Illuminate\Http\Request;
 
@@ -21,6 +23,7 @@ class TestController extends Controller {
 		//{
 		//    $message->to('wangchuan3533@gmail.com', 'Wang Chuan')->subject('Welcome!');
 		//});
+		$this->testQueue();
 	}
 
 	/**
@@ -86,6 +89,16 @@ class TestController extends Controller {
 	public function destroy($id)
 	{
 		//
+	}
+
+	public function testQueue()
+	{
+		Queue::push(new TestCommand('hello'));
+	}
+
+	public function testEs()
+	{
+		return 0;
 	}
 
 }
