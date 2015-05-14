@@ -13,10 +13,9 @@ class PhotoController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index(Request $request)
 	{
-		//
-		return ['a' => 'b'];
+		return Photo::where($request->all())->get();
 	}
 
 	/**

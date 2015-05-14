@@ -10,4 +10,6 @@ class Order extends Model {
 	const STATUS_DELETED  = 4;
 	//
 
+	protected $fillable = ['client_id', 'type', 'name', 'channel', 'role'];
+
 }

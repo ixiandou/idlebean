@@ -13,10 +13,9 @@ class OrderController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index(Request $request)
 	{
-		// return Order::all();
-		return Order::where('status', '=', Order::STATUS_NEW)->get();
+		return Order::where($request->all())->get();
 	}
 
 	/**
@@ -27,10 +26,6 @@ class OrderController extends Controller {
 	public function create()
 	{
 		//
-		$order = new Order;
-		$order->status = Order::STATUS_NEW;
-		$order->save();
-		return $order;
 	}
 
 	/**
@@ -38,9 +33,11 @@ class OrderController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
 		//
+		$order = Order::create($request->all());
+		return $order;
 	}
 
 	/**

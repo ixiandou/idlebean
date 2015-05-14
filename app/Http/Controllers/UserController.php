@@ -16,9 +16,9 @@ class UserController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index(Request $request)
 	{
-		return User::all();
+		return User::where($request->all())->get();
 	}
 
 	/**
@@ -29,9 +29,7 @@ class UserController extends Controller {
 	public function create()
 	{
 		//
-		$user = new User;
-		$user->save();
-		return $user;
+		return redirect('/auth/register');
 	}
 
 	/**
@@ -39,9 +37,11 @@ class UserController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
-		//
+		$user = User::create($request->all());
+		$user->save();
+		return $user;
 	}
 
 	/**
