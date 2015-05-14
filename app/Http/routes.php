@@ -22,9 +22,10 @@ Route::controllers([
 
 Route::resource('user', 'UserController');
 Route::resource('order', 'OrderController');
-Route::resource('test', 'TestController');
 Route::resource('photo', 'PhotoController');
+Route::resource('test', 'TestController');
 
-Route::get('user/reg/{mobile}', 'UserController@reg');
-Route::get('user/confirm/{mobile}/{code}', 'UserController@confirm');
-Route::get('user/check/{mobile}/{token}', 'UserController@check');
+Route::get('token/{mobile}', ['as' => 'token.request', 'uses' => 'TokenController@fetch']);
+Route::get('token/{mobile}/{code}', ['as' => 'token.confirm', 'uses' => 'TokenController@confirm']);
+Route::get('token/check/{mobile}/{code}', ['as' => 'token.check', 'uses' => 'TokenController@check']);
+

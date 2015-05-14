@@ -68,9 +68,12 @@ class OrderController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(Request $request, $id)
 	{
 		//
+		$order = Order::findOrFail($id);
+		$order->update($request->all());
+		$order->save();
 	}
 
 	/**

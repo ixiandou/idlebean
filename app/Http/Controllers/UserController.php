@@ -5,8 +5,6 @@ use App\Http\Controllers\Controller;
 use App\User;
 use App\Facades\Sms;
 use Auth;
-
-
 use Illuminate\Http\Request;
 
 class UserController extends Controller {
@@ -72,9 +70,12 @@ class UserController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(Request $request, $id)
 	{
 		//
+		$user = User::findOrFail($id);
+		$user->update($request->all());
+		$user->save();
 	}
 
 	/**
@@ -86,47 +87,5 @@ class UserController extends Controller {
 	public function destroy($id)
 	{
 		//
-	}
-
-	public function reg($mobile)
-	{
-		$confirmation_code = rand(100000, 999999);
-		$user = User::firstOrNew(['telephone' => $mobile]);
-		$user->telephone = $mobile;
-		$user->confirmation_code = $confirmation_code;
-		$user->confirmation_expire = time() + 600;
-		$user->save();
-		$ret = Sms::send($mobile, $user->confirmation_code);
-		if ($ret['errcode'] != 2) {
-			return ['errcode' => -1, 'errmsg' => 'sms'];
-		}
-			
-		return ['errcode' => 0, 'errmsg' => 'success'];
-	}
-
-	public function confirm($mobile, $code)
-	{
-		$user = User::where('telephone', '=', $mobile)->first();
-		if (!$user) {
-			return ['errcode' => -1, 'errmsg' => 'not exist'];
-		}
-		if ($user->confirmation_code != $code) {
-			return ['errcode' => -1, 'errmsg' => 'wrong code'];
-		}
-		if ($user->confirmation_expire < time()) {
-			return ['errcode' => -1, 'errmsg' => 'expire'];
-		}
-
-		$user->confirmation_code = '';
-		$user->confirmation_expire = 0;
-		$user->token = str_random(64);
-		$user->token_expire = time() + 259200;
-		$user->save();
-		return ['errcode' => 0, 'errmsg' => 'success', 'token' => $user->token];
-	}
-
-	public function check($mobile, $token)
-	{
-		return User::where('telephone', '=', $mobile)->where('token', '=', $token)->firstOrFail();
 	}
 }

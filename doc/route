@@ -1,52 +1,18 @@
-+--------+--------------------------------+-------------------------------------------------------+---------------+------------------------------------------------------------+------------+
-|[32m Domain [39m|[32m Method                         [39m|[32m URI                                                   [39m|[32m Name          [39m|[32m Action                                                     [39m|[32m Middleware [39m|
-+--------+--------------------------------+-------------------------------------------------------+---------------+------------------------------------------------------------+------------+
-|        | GET|HEAD                       | /                                                     |               | App\Http\Controllers\WelcomeController@index               | guest      |
-|        | GET|HEAD                       | home                                                  |               | App\Http\Controllers\HomeController@index                  | auth       |
-|        | GET|HEAD                       | auth/register/{one?}/{two?}/{three?}/{four?}/{five?}  |               | App\Http\Controllers\Auth\AuthController@getRegister       | guest      |
-|        | POST                           | auth/register/{one?}/{two?}/{three?}/{four?}/{five?}  |               | App\Http\Controllers\Auth\AuthController@postRegister      | guest      |
-|        | GET|HEAD                       | auth/login/{one?}/{two?}/{three?}/{four?}/{five?}     |               | App\Http\Controllers\Auth\AuthController@getLogin          | guest      |
-|        | POST                           | auth/login/{one?}/{two?}/{three?}/{four?}/{five?}     |               | App\Http\Controllers\Auth\AuthController@postLogin         | guest      |
-|        | GET|HEAD                       | auth/logout/{one?}/{two?}/{three?}/{four?}/{five?}    |               | App\Http\Controllers\Auth\AuthController@getLogout         |            |
-|        | GET|HEAD|POST|PUT|PATCH|DELETE | auth/{_missing}                                       |               | App\Http\Controllers\Auth\AuthController@missingMethod     | guest      |
-|        | GET|HEAD                       | password/email/{one?}/{two?}/{three?}/{four?}/{five?} |               | App\Http\Controllers\Auth\PasswordController@getEmail      | guest      |
-|        | POST                           | password/email/{one?}/{two?}/{three?}/{four?}/{five?} |               | App\Http\Controllers\Auth\PasswordController@postEmail     | guest      |
-|        | GET|HEAD                       | password/reset/{one?}/{two?}/{three?}/{four?}/{five?} |               | App\Http\Controllers\Auth\PasswordController@getReset      | guest      |
-|        | POST                           | password/reset/{one?}/{two?}/{three?}/{four?}/{five?} |               | App\Http\Controllers\Auth\PasswordController@postReset     | guest      |
-|        | GET|HEAD|POST|PUT|PATCH|DELETE | password/{_missing}                                   |               | App\Http\Controllers\Auth\PasswordController@missingMethod | guest      |
-|        | GET|HEAD                       | user                                                  | user.index    | App\Http\Controllers\UserController@index                  |            |
-|        | GET|HEAD                       | user/create                                           | user.create   | App\Http\Controllers\UserController@create                 |            |
-|        | POST                           | user                                                  | user.store    | App\Http\Controllers\UserController@store                  |            |
-|        | GET|HEAD                       | user/{user}                                           | user.show     | App\Http\Controllers\UserController@show                   |            |
-|        | GET|HEAD                       | user/{user}/edit                                      | user.edit     | App\Http\Controllers\UserController@edit                   |            |
-|        | PUT                            | user/{user}                                           | user.update   | App\Http\Controllers\UserController@update                 |            |
-|        | PATCH                          | user/{user}                                           |               | App\Http\Controllers\UserController@update                 |            |
-|        | DELETE                         | user/{user}                                           | user.destroy  | App\Http\Controllers\UserController@destroy                |            |
-|        | GET|HEAD                       | order                                                 | order.index   | App\Http\Controllers\OrderController@index                 |            |
-|        | GET|HEAD                       | order/create                                          | order.create  | App\Http\Controllers\OrderController@create                |            |
-|        | POST                           | order                                                 | order.store   | App\Http\Controllers\OrderController@store                 |            |
-|        | GET|HEAD                       | order/{order}                                         | order.show    | App\Http\Controllers\OrderController@show                  |            |
-|        | GET|HEAD                       | order/{order}/edit                                    | order.edit    | App\Http\Controllers\OrderController@edit                  |            |
-|        | PUT                            | order/{order}                                         | order.update  | App\Http\Controllers\OrderController@update                |            |
-|        | PATCH                          | order/{order}                                         |               | App\Http\Controllers\OrderController@update                |            |
-|        | DELETE                         | order/{order}                                         | order.destroy | App\Http\Controllers\OrderController@destroy               |            |
-|        | GET|HEAD                       | test                                                  | test.index    | App\Http\Controllers\TestController@index                  |            |
-|        | GET|HEAD                       | test/create                                           | test.create   | App\Http\Controllers\TestController@create                 |            |
-|        | POST                           | test                                                  | test.store    | App\Http\Controllers\TestController@store                  |            |
-|        | GET|HEAD                       | test/{test}                                           | test.show     | App\Http\Controllers\TestController@show                   |            |
-|        | GET|HEAD                       | test/{test}/edit                                      | test.edit     | App\Http\Controllers\TestController@edit                   |            |
-|        | PUT                            | test/{test}                                           | test.update   | App\Http\Controllers\TestController@update                 |            |
-|        | PATCH                          | test/{test}                                           |               | App\Http\Controllers\TestController@update                 |            |
-|        | DELETE                         | test/{test}                                           | test.destroy  | App\Http\Controllers\TestController@destroy                |            |
-|        | GET|HEAD                       | photo                                                 | photo.index   | App\Http\Controllers\PhotoController@index                 |            |
-|        | GET|HEAD                       | photo/create                                          | photo.create  | App\Http\Controllers\PhotoController@create                |            |
-|        | POST                           | photo                                                 | photo.store   | App\Http\Controllers\PhotoController@store                 |            |
-|        | GET|HEAD                       | photo/{photo}                                         | photo.show    | App\Http\Controllers\PhotoController@show                  |            |
-|        | GET|HEAD                       | photo/{photo}/edit                                    | photo.edit    | App\Http\Controllers\PhotoController@edit                  |            |
-|        | PUT                            | photo/{photo}                                         | photo.update  | App\Http\Controllers\PhotoController@update                |            |
-|        | PATCH                          | photo/{photo}                                         |               | App\Http\Controllers\PhotoController@update                |            |
-|        | DELETE                         | photo/{photo}                                         | photo.destroy | App\Http\Controllers\PhotoController@destroy               |            |
-|        | GET|HEAD                       | user/reg/{mobile}                                     |               | App\Http\Controllers\UserController@reg                    |            |
-|        | GET|HEAD                       | user/confirm/{mobile}/{code}                          |               | App\Http\Controllers\UserController@confirm                |            |
-|        | GET|HEAD                       | user/check/{mobile}/{token}                           |               | App\Http\Controllers\UserController@check                  |            |
-+--------+--------------------------------+-------------------------------------------------------+---------------+------------------------------------------------------------+------------+
++--------------------------------+-------------------------------------------------------+---------------+
+| Method                         | URI                                                   | Description   |
++--------------------------------+-------------------------------------------------------+---------------+
+| GET                            | user                                                  | user.list     |
+| POST                           | user                                                  | user.store    |
+| GET                            | user/{user}                                           | user.show     |
+| PUT                            | user/{user}                                           | user.update   |
+| GET                            | order                                                 | order.list    |
+| POST                           | order                                                 | order.store   |
+| GET                            | order/{order}                                         | order.show    |
+| PUT                            | order/{order}                                         | order.update  |
+| GET                            | photo                                                 | photo.list    |
+| POST                           | photo                                                 | photo.store   |
+| GET                            | photo/{photo}                                         | photo.show    |
+| GET                            | token/{mobile}                                        | token.request |
+| GET                            | token/{mobile}/{code}                                 | token.confirm |
+| GET                            | token/check/{mobile}/{code}                           | token.check   |
++--------------------------------+-------------------------------------------------------+---------------+
