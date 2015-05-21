@@ -28,4 +28,7 @@ Route::resource('test', 'TestController');
 Route::get('token/{mobile}', ['as' => 'token.request', 'uses' => 'TokenController@fetch']);
 Route::get('token/{mobile}/{code}', ['as' => 'token.confirm', 'uses' => 'TokenController@confirm']);
 Route::get('token/check/{mobile}/{code}', ['as' => 'token.check', 'uses' => 'TokenController@check']);
+Route::get('bonus/add/{user}/{bonus}', ['bonus.add', 'uses' => 'BonusController@add']);
+Route::get('bonus/cost/{user}/{bonus}', ['bonus.add', 'uses' => 'BonusController@cost']);
+Route::get('comment/add/{user}/{level}', ['comment.add', 'uses' => 'CommentController@add']);
 

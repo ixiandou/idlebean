@@ -128,27 +128,121 @@ Cache-Control: no-cache
 
 # ```GET /order```
 获取订单列表
+## 输入参数(查询条件，均为可选)
+- client_id: 客户id
+- worker_id: 回收人员id
+- type: 回收类型
+- name: 产品名称
+- channel: 渠道
+- version: 版本
+- color: 颜色
+- storage: 容量
+- insurance: 保修
+- surface: 表面
+- screen_surface: 屏幕表面 
+- screen_display: 屏幕显示
+- damp: 损坏程度
+- repair: 维修记录
+- start_problem: 启动问题
+- key_problem: key问题
+- address: 地址
+- user_img_path: 用户上传图片路径
+- user_img_url: 图片url
+- worker_img_path: 回收人员上传路径
+- worker_img_url: 回收人员上传图片url
+- eval_price: 估价
+- real_price: 实际价格
+- lng: 经度
+- lat: 纬度
+- pic_list: 图片列表 
+- attr: 属性
+- other: 其他
 
 # ```POST /order```
 新建订单
+## 输入参数
+- client_id: 客户id
+- worker_id: 回收人员id
+- type: 回收类型
+- name: 产品名称
+- channel: 渠道
+- version: 版本
+- color: 颜色
+- storage: 容量
+- insurance: 保修
+- surface: 表面
+- screen_surface: 屏幕表面 
+- screen_display: 屏幕显示
+- damp: 损坏程度
+- repair: 维修记录
+- start_problem: 启动问题
+- key_problem: key问题
+- address: 地址
+- user_img_path: 用户上传图片路径
+- user_img_url: 图片url
+- worker_img_path: 回收人员上传路径
+- worker_img_url: 回收人员上传图片url
+- eval_price: 估价
+- real_price: 实际价格
+- lng: 经度
+- lat: 纬度
+- pic_list: 图片列表 
+- attr: 属性
+- other: 其他
 
 # ```GET /order/{id}```
 获取订单详情
+## 输入参数
+- id order_id
 
 # ```PUT /order/{id}```
 更新订单
+## 输入参数
+同创建接口
 
 # ```POST /photo```
 上传图片
+## 输入参数
+- user_id 用户id
+- photo 图片文件
 
 # ```GET /photo/{id}```
 获取图片
+## 输入参数
+- id 图片id
 
 # ```GET /token/{mobile}```
 获取手机验证码（发短信到手机）
+## 输入参数
+- mobile 手机号码
 
 # ```GET /token/{mobile}/{code}```
 确认手机验证码（返回token）
+## 输入参数
+- mobile 手机号码
+- code 手机收到的短信验证码
 
 # ```GET /token/check/{mobile}/{token}```
 检查token是否正确
+## 输入参数
+- mobile 手机号码
+- token 短信验证返回的token
+
+# ```GET /bonus/add/{user}/{bonus}```
+用户积分增加
+## 输入参数
+- user user_id
+- bonus 增加的积分
+
+# ```GET /bonus/cost/{user}/{bonus}```
+用户积分消费
+## 输入参数
+- user user_id
+- bonus 消费的积分
+
+# ```GET /comment/add/{user}/{level}```
+好评、中评、差评　
+## 输入参数
+- user user_id
+- level 好评、中评或差评(分别为good, mid, bad)
+

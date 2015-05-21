@@ -49,6 +49,7 @@ class OrderController extends Controller {
 	public function show($id)
 	{
 		//
+		return Order::findOrFail($id);
 	}
 
 	/**
