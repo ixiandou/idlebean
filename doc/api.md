@@ -17,12 +17,16 @@
 - comments_mid: 中评
 - comments_bad: 差评
 - status: 状态
+
 ## 示例
 ### 请求
+```
 GET /user?name=wangchuan HTTP/1.1
 Host: magic.my
 Cache-Control: no-cache
+```
 ### 返回
+```
 [
     {
         "id": 1,
@@ -45,6 +49,7 @@ Cache-Control: no-cache
         "updated_at": "2015-05-21 02:35:31"
     }
 ]
+```
 
 # POST /user
 创建用户
@@ -61,13 +66,16 @@ Cache-Control: no-cache
 
 ## 示例
 ### 请求
+```
 POST /user HTTP/1.1
 Host: magic.my
 Cache-Control: no-cache
 Content-Type: application/x-www-form-urlencoded
 
 name=wangchuan&email=wangchuan3533%40gmail.com&password=123456&telephone=18610734056&area=%E6%9C%9D%E9%98%B3%E5%8C%BA&addresss=%E5%8C%97%E4%BA%AC%E5%B8%82%E6%9C%9D%E9%98%B3%E5%8C%BA%E6%9C%9D%E9%98%B3%E9%97%A8%E9%93%B6%E6%B2%B3soho&lng=56.123&lat=121.111
+```
 ### 返回
+```
 {
     "name": "wangchuan",
     "email": "wangchuan3533@gmail.com",
@@ -76,6 +84,7 @@ name=wangchuan&email=wangchuan3533%40gmail.com&password=123456&telephone=1861073
     "created_at": "2015-05-21 02:35:31",
     "id": 1
 }
+```
 	
 # GET /user/{id}
 获取用户详情
@@ -84,10 +93,13 @@ name=wangchuan&email=wangchuan3533%40gmail.com&password=123456&telephone=1861073
 
 ## 示例
 ### 请求
+```
 GET /user/1 HTTP/1.1
 Host: magic.my
 Cache-Control: no-cache
+```
 ### 返回
+```
 {
     "id": 1,
     "name": "wangchuan",
@@ -108,6 +120,7 @@ Cache-Control: no-cache
     "created_at": "2015-05-21 02:35:31",
     "updated_at": "2015-05-21 02:35:31"
 }
+```
 
 # PUT /user/{id}
 更改用户信息
