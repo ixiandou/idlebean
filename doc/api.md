@@ -1,4 +1,4 @@
-# GET /user
+# ```GET /user```
 获取用户列表
 ## 输入参数(这些参数都是可选)
 - name: 用户名
@@ -51,7 +51,7 @@ Cache-Control: no-cache
 ]
 ```
 
-# POST /user
+# ```POST /user```
 创建用户
 ## 输入参数：
 - name: 用户名
@@ -86,7 +86,7 @@ name=wangchuan&email=wangchuan3533%40gmail.com&password=123456&telephone=1861073
 }
 ```
 	
-# GET /user/{id}
+# ```GET /user/{id}```
 获取用户详情
 ## 输入参数
 - id 用户id
@@ -122,33 +122,33 @@ Cache-Control: no-cache
 }
 ```
 
-# PUT /user/{id}
+# ```PUT /user/{id}```
 更改用户信息
 ## 参考创建用户
 
-# GET /order
+# ```GET /order```
 获取订单列表
 
-# POST /order
+# ```POST /order```
 新建订单
 
-# GET /order/{id}
+# ```GET /order/{id}```
 获取订单详情
 
-# PUT /order/{id}
+# ```PUT /order/{id}```
 更新订单
 
-# POST /photo
+# ```POST /photo```
 上传图片
 
-# GET /photo/{id}
+# ```GET /photo/{id}```
 获取图片
 
-# GET /token/{mobile}
+# ```GET /token/{mobile}```
 获取手机验证码（发短信到手机）
 
-# GET /token/{mobile}/{code}
+# ```GET /token/{mobile}/{code}```
 确认手机验证码（返回token）
 
-# GET /token/check/{mobile}/{token}
+# ```GET /token/check/{mobile}/{token}```
 检查token是否正确
