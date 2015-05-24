@@ -35,6 +35,7 @@ class CreateUsersTable extends Migration {
                         $table->integer('status');
 			$table->double('lng');
 			$table->double('lat');
+			$table->string('recommend_tel');
 			$table->rememberToken();
 			$table->timestamps();
 			$table->unique(['email', 'telephone']);

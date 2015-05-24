@@ -17,6 +17,7 @@
 - comments_mid: 中评
 - comments_bad: 差评
 - status: 状态
+- recommend_tel: 推荐人手机号
 
 ## 示例
 ### 请求
@@ -63,6 +64,7 @@ Cache-Control: no-cache
 - role: 角色(0:管理员, 1:普通用户, 2:回收人员)
 - lng: 经度
 - lat: 纬度
+- recommend_tel: 推荐人手机号
 
 ## 示例
 ### 请求
