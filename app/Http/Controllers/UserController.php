@@ -77,6 +77,7 @@ class UserController extends Controller {
 		$user = User::findOrFail($id);
 		$user->update($request->all());
 		$user->save();
+		return $user;
 	}
 
 	/**

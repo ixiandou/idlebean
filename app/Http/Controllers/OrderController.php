@@ -75,6 +75,7 @@ class OrderController extends Controller {
 		$order = Order::findOrFail($id);
 		$order->update($request->all());
 		$order->save();
+		return $order;
 	}
 
 	/**

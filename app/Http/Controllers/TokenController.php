@@ -17,7 +17,7 @@ class TokenController extends Controller {
 	public function fetch($mobile)
 	{
 		$confirmation_code = rand(100000, 999999);
-		$user = User::firstOrNew(['telephone' => $mobile]);
+		$user = User::where(['telephone' => $mobile])->firstOrFail();
 		$user->telephone = $mobile;
 		$user->confirmation_code = $confirmation_code;
 		$user->confirmation_expire = time() + 600;

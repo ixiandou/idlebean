@@ -85,4 +85,16 @@ class PhotoController extends Controller {
 		//
 	}
 
+	/**
+	 * Upload a pic raw
+	 */
+	public function upload(Request $request, $user_id)
+	{
+		$fileContents = $request->getContent();
+		$photo = Photo::create(['user_id' => $request->input('user_id', 0)]);
+		$fileName = 'uploads/' . $photo->id . '.png';
+		var_dump(file_put_contents($fileName, $fileContents));
+		return ['errno' => 0, 'errmsg' => 'success', 'id' => $photo->id];
+	}
+
 }
